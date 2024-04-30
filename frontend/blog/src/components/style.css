@@ -1,0 +1,80 @@
+/* This will contain all the css regarding the components  */
+*
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+:root 
+{
+    --theme: rgb(27, 27, 27);
+    --theme-light-bg: rgb(35, 35, 35);
+    --theme-light: white;
+
+    --heading: 40px;
+    --sub-heading: 16px;
+}
+/* LOGIN Container   */
+.main-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: var(--theme);
+    flex-direction: column;
+    gap: 10px;
+    
+    
+}
+
+.login-container 
+{
+    background: var(--theme-light-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: space-around;
+    
+    min-width: 20vw;
+    min-height: 40vh;
+}
+
+.login-container h1
+{
+    font-size: var(--heading);
+    font-weight: bold;
+}
+
+.login-container input 
+{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+    background-color: rgb(43, 43, 43);
+    transition: .1s all ease;
+    font-size: var(--sub-heading);
+}
+
+
+.login-container button
+{
+    outline: none;
+    border: none;
+    background-color: black;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: var(--sub-heading);
+}
