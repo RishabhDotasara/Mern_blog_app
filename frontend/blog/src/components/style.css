@@ -1,80 +1,317 @@
 /* This will contain all the css regarding the components  */
-*
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    color: white;
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: white;
+  scroll-behavior: smooth;
+  
 }
 
-:root 
+body 
 {
-    --theme: rgb(27, 27, 27);
-    --theme-light-bg: rgb(35, 35, 35);
-    --theme-light: white;
+    overflow-x: hidden;
+    
+}
 
-    --heading: 40px;
-    --sub-heading: 16px;
+::-webkit-scrollbar
+{
+    display: none;
+}
+
+.go-top-btn
+{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background: black;
+    
+    padding: 15px 18px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.loading
+{
+    font-size: 10vh;
+    animation: spin 1s ease-in-out infinite;
+    /* background: green; */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+:root {
+  --theme: rgb(27, 27, 27);
+  --theme-light-bg: rgb(35, 35, 35);
+  --theme-light: white;
+
+  --heading: 40px;
+  --sub-heading: 16px;
+  --secondary-color:lightgreen;
+
 }
 /* LOGIN Container   */
-.main-container
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background: var(--theme);
-    flex-direction: column;
-    gap: 10px;
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
     
-    
+  background: var(--theme);
+  flex-direction: column;
+  gap: 10px;
+  height: fit-content;
 }
 
-.login-container 
+.login-container {
+  background: var(--theme-light-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: space-around;
+
+  min-width: 20vw;
+  min-height: 40vh;
+}
+
+.login-container h1 {
+  font-size: var(--heading);
+  font-weight: bold;
+}
+
+.login-container input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+  background-color: rgb(43, 43, 43);
+  transition: 0.1s all ease;
+  font-size: var(--sub-heading);
+}
+
+.login-container button {
+  outline: none;
+  border: none;
+  background-color: black;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: var(--sub-heading);
+}
+
+.home-container {
+  background: var(--theme);
+  box-sizing: border-box;
+  height: fit-content;
+  width: 100%;
+  position: relative;
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.home-container .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--theme);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 70px;
+  z-index: 9;
+  justify-content: space-around;
+}
+.home-container .navbar.active
+{
+    box-shadow: 0 0 2px white;
+}
+.home-container .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    flex: 0.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home-container .navbar .searchbox {
+  padding: 3px 10px;
+    border-radius: 20px;
+  background-color: var(--theme-light-bg);
+    min-width: 30%;
+    flex: 0.3;
+}
+.home-container .navbar .searchbox input {
+  padding: 5px;
+  outline: none;
+  border: none;
+  width: 80%;
+  height: 100%;
+  border-right: 1px solid grey;
+  background-color: transparent;
+  font-size: 16px;
+}
+.home-container .navbar .searchbox button {
+  padding: 10px;
+  border: none;
+  width: 20%;
+  height: 100%;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.home-container .navbar .links {
+  
+  flex: 0.2;
+  display: flex;
+  list-style-type: none;
+  gap: 20px;
+  font-size: 24px;
+  align-items: center;
+  justify-content: right;
+}
+
+/* CSS FOR THE USER DROP DOWN MENU */
+.home-container .navbar .links .user 
+{
+  position: relative;
+}
+.home-container .navbar .links .user .container-user
+{
+  background: transparent;
+  width: fit-content;
+  height: fit-content;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  position: absolute;
+}
+.home-container .navbar .links .user .user-actions
+{
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background: black;
+  list-style-type: none;
+  font-size: 70%;
+  width: fit-content;
+  height: fit-content;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 10px;
+}
+.home-container .navbar .links .user .user-actions li 
+{
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  /* border-bottom: 1px solid grey; */
+  padding-bottom: 5px;
+}
+
+.home-container .navbar .links .link 
+{
+    cursor: pointer;
+}
+
+.blog-card 
 {
     background: var(--theme-light-bg);
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    gap: 10px;
+    height: 30vh;
+    max-width: 60vw;
+    cursor: pointer;
+    transition: .1s ease-in-out;
+}
+
+.blog-card:hover 
+{
+    transform: scale(1.01);
+}
+
+.blog-card .thumbnail 
+{
+    
+    /* background-color: green; */
+    height: 100%;
+    border-radius: 20px;
+    max-width: 40%;
+    min-width: 40%;
+    outline: none;
+    user-select: none;
+    border: none;
+}
+
+.blog-card .info
+{
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    align-items: center;
-    justify-content: space-around;
-    
-    min-width: 20vw;
-    min-height: 40vh;
-}
-
-.login-container h1
-{
-    font-size: var(--heading);
-    font-weight: bold;
-}
-
-.login-container input 
-{
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    outline: none;
+    /* gap: 10px; */
     width: 100%;
-    background-color: rgb(43, 43, 43);
-    transition: .1s all ease;
-    font-size: var(--sub-heading);
+    justify-content: space-around;
+    height: 100%;
 }
 
-
-.login-container button
+.blog-card .info h2 
 {
-    outline: none;
-    border: none;
-    background-color: black;
-    padding: 10px 15px;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: var(--sub-heading);
+    flex: 0.5;
+    /* background: red; */
+    width: 100%;
+    font-size: 3vh;
+    
+}
+
+.blog-card .info .desc
+{
+  color: grey;
+  flex: 0.3;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.blog-card .info .desc p 
+{
+  color: var(--secondary-color);
+}
+@media screen and (max-width: 1000px) 
+{
+    .blog-card 
+    {
+        height: 20vh;
+    }
+    .blog-card .info h2 
+    {
+        flex: 0.8;
+        background: transparent;
+        width: 100%;
+        font-size: 2vh;
+    }
 }
